@@ -1,24 +1,23 @@
-# Jetour Python Project
+# Aurora Motors Landing Page
 
-مشروع موقع سيارات Jetour باستخدام Python Flask وSQLite.
+A premium automotive-inspired landing page built with Python Flask.
 
-## التشغيل
+## Features
+- luxury-style homepage
+- hero section
+- models showcase
+- brand experience section
+- technology highlights
+- contact section
+- responsive layout
 
+## Run locally
 ```bash
-python -m venv venv
-source venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-python app.py
+flask --app app run --host 0.0.0.0 --port 5055
 ```
 
-ثم افتح المتصفح على:
-
-`http://127.0.0.1:5000`
-
-## الصفحات
-- `/` الصفحة الرئيسية
-- `/admin` لوحة الإدارة
-
-## ملاحظات
-- قاعدة البيانات تُنشأ تلقائياً باسم `cars.db`
-- الصور تتم إضافتها من خلال رابط مباشر
+## Notes
+This project is an original automotive-inspired web experience and not a direct clone of any third-party website.
