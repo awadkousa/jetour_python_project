@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الإدارة</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <h1>لوحة الإدارة</h1>
+      <a href="{{ url_for('home') }}">الرجوع للموقع</a>
+    </div>
+  </header>
+
+  <main class="container admin-page">
+    <section class="admin-form card-panel">
+      <h2>إضافة سيارة جديدة</h2>
+      <form method="POST">
+        <input type="text" name="name" placeholder="اسم السيارة" required>
+        <input type="text" name="description" placeholder="الوصف" required>
+        <input type="url" name="image" placeholder="رابط الصورة" required>
+        <button type="submit">إضافة</button>
+      </form>
+    </section>
+
+    <section class="card-panel">
+      <h2>السيارات الحالية</h2>
+      <div class="admin-list">
+        {% for car in cars %}
+        <div class="admin-item">
+          <span>{{ car['name'] }}</span>
+          <a class="delete-btn" href="{{ url_for('delete_car', car_id=car['id']) }}">حذف</a>
+        </div>
+        {% else %}
+        <p class="empty">لا توجد سيارات حالياً.</p>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+</body>
+</html>

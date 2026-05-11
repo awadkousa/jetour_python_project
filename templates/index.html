@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jetour</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <h1>JETOUR</h1>
+      <a href="{{ url_for('admin') }}">لوحة الإدارة</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>تجربة فاخرة مع سيارات Jetour</h2>
+      <p>استعرض أحدث السيارات والمواصفات بطريقة بسيطة وأنيقة.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <h3 class="section-title">السيارات</h3>
+    <div class="cars-grid">
+      {% for car in cars %}
+      <article class="card">
+        <img src="{{ car['image'] }}" alt="{{ car['name'] }}">
+        <div class="card-content">
+          <h4>{{ car['name'] }}</h4>
+          <p>{{ car['description'] }}</p>
+        </div>
+      </article>
+      {% else %}
+      <p class="empty">لا توجد سيارات مضافة بعد.</p>
+      {% endfor %}
+    </div>
+  </main>
+</body>
+</html>
